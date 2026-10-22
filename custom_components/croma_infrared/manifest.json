@@ -1,0 +1,13 @@
+{
+  "domain": "croma_infrared",
+  "name": "Croma Infrared",
+  "codeowners": ["@Dr-Blank"],
+  "config_flow": true,
+  "dependencies": ["infrared"],
+  "documentation": "https://github.com/Dr-Blank/croma-infrared-ha",
+  "integration_type": "device",
+  "iot_class": "assumed_state",
+  "issue_tracker": "https://github.com/Dr-Blank/croma-infrared-ha/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}

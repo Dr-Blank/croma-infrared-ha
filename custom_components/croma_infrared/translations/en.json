@@ -1,0 +1,41 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "This Croma TV has already been configured with this infrared emitter.",
+      "no_infrared_emitters": "No infrared emitter entities found. Please set up an infrared device first."
+    },
+    "step": {
+      "user": {
+        "data": {
+          "infrared_emitter_entity_id": "Infrared emitter"
+        },
+        "data_description": {
+          "infrared_emitter_entity_id": "The infrared emitter entity to use for sending commands."
+        },
+        "description": "Select the infrared emitter to use for controlling your Croma TV.",
+        "title": "Set up Croma IR TV"
+      }
+    }
+  },
+  "entity": {
+    "media_player": {
+      "tv": {
+        "state_attributes": {
+          "source": {
+            "state": {
+              "live_tv": "Live TV",
+              "netflix": "Netflix",
+              "prime_video": "Prime Video",
+              "youtube": "YouTube"
+            }
+          }
+        }
+      }
+    }
+  },
+  "exceptions": {
+    "invalid_source": {
+      "message": "Cannot select source {invalid_source} for media player. Valid sources: {valid_sources}."
+    }
+  }
+}
