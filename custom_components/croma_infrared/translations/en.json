@@ -18,6 +18,77 @@
     }
   },
   "entity": {
+    "button": {
+      "account": {
+        "name": "Account"
+      },
+      "apps": {
+        "name": "Apps"
+      },
+      "back": {
+        "name": "Back"
+      },
+      "down": {
+        "name": "Down"
+      },
+      "exit": {
+        "name": "Exit"
+      },
+      "fast_forward": {
+        "name": "Fast forward"
+      },
+      "free_hotkey": {
+        "name": "Free hotkey"
+      },
+      "guide": {
+        "name": "Guide"
+      },
+      "home": {
+        "name": "Home"
+      },
+      "info": {
+        "name": "Info"
+      },
+      "input": {
+        "name": "Input"
+      },
+      "left": {
+        "name": "Left"
+      },
+      "menu": {
+        "name": "Menu"
+      },
+      "ok": {
+        "name": "OK"
+      },
+      "power": {
+        "name": "Power"
+      },
+      "program_down": {
+        "name": "Program down"
+      },
+      "program_up": {
+        "name": "Program up"
+      },
+      "rewind": {
+        "name": "Rewind"
+      },
+      "right": {
+        "name": "Right"
+      },
+      "settings": {
+        "name": "Settings"
+      },
+      "subtitles": {
+        "name": "Subtitles"
+      },
+      "up": {
+        "name": "Up"
+      },
+      "voice": {
+        "name": "Voice"
+      }
+    },
     "media_player": {
       "tv": {
         "state_attributes": {

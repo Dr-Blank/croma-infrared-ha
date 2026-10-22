@@ -1,7 +1,7 @@
 # Croma Infrared for Home Assistant
 
 > [!IMPORTANT]
-> This is a preview of the Croma Infrared integration proposed for Home Assistant core in [home-assistant/core#187873](https://github.com/home-assistant/core/pull/187873). It uses the same `croma_infrared` domain, so your config entry and entities carry over. Once the core integration matches this one, this repository will be archived: remove it from HACS and restart, and the built-in integration takes over.
+> This is a preview of the Croma Infrared integration proposed for Home Assistant core in [home-assistant/core#187873](https://github.com/home-assistant/core/pull/187873). It already includes what is planned to follow that pull request, such as the remote's buttons. It uses the same `croma_infrared` domain, so your config entry and entities carry over. Once the core integration matches this one, this repository will be archived: remove it from HACS and restart, and the built-in integration takes over.
 
 Control a Croma Google TV from Home Assistant through an infrared transmitter. Croma TVs are sold in India by Croma, the Tata Group electronics retailer.
 
@@ -21,8 +21,18 @@ Verified with the Croma 43-inch 4K UHD QLED Google TV, 2026 model (CREL043UGQ024
 | Entity | Type | What it does |
 | --- | --- | --- |
 | Croma TV | media player | Turn on, turn off, volume up and down, mute, play, pause, stop, and select source. |
+| Power | button | Sends the power key without changing the media player's state. Use it to bring the TV and Home Assistant back in step. |
+| Up, Down, Left, Right, OK | button | Navigation. |
+| Back, Exit, Home, Menu, Settings, Apps | button | The remote's keys of the same name. Exit acts like Back on this TV. |
+| Input, Info, Guide | button | Source, Info and EPG keys. |
+| Account, Voice, Subtitles | button | The remote's keys of the same name. Speaking to the assistant still needs the Bluetooth remote. |
+| Program up, Program down | button | P+ and P-, for Live TV. |
+| Fast forward, Rewind | button | Not on the remote, but the TV accepts them. |
+| Free hotkey | button | Opens the app you assign to the free hotkey on the TV. |
 
 Sources are YouTube, Netflix, Prime Video and Live TV. Selecting one sends the matching app key from the remote, which opens that app on the TV.
+
+The Menu key and an unassigned Free hotkey are received by the TV (its standby light blinks) but do nothing on the tested model.
 
 ## Installation
 
@@ -58,7 +68,7 @@ Delete the integration from **Settings > Devices & services**, then remove it in
 
 ## Known limitations
 
-- The TV has a single power key that switches between on and off, so turning it on and turning it off send the same key. If the TV and Home Assistant disagree, the command does the opposite of what you asked for. The mute key works the same way.
+- The TV has a single power key that switches between on and off, so turning it on and turning it off send the same key, even when Home Assistant already shows the state you asked for. An automation that turns off a TV that is already off turns it on; add a state condition to guard against that. The mute key works the same way.
 - Presses on the physical remote are not tracked.
 - Volume control is step-based only. You cannot set an absolute volume level.
 - The TV's HDMI inputs cannot be selected directly, because the remote only has a key that opens the input menu.
@@ -68,4 +78,4 @@ Delete the integration from **Settings > Devices & services**, then remove it in
 
 **The TV does not respond.** Infrared needs a clear line of sight to the TV's IR window, usually at the bottom edge of the screen. Point the transmitter at it, move it closer, and check that the infrared entity is available in Home Assistant.
 
-**Home Assistant shows the wrong state.** Someone used the remote, or a command did not reach the TV. Home Assistant skips a power or mute command when it already believes the TV is in that state, so repeating the command sends nothing. Use the TV's remote to bring the TV into the state Home Assistant shows.
+**Home Assistant shows the wrong state.** Someone used the remote, or a command did not reach the TV. Use the action for the state you want: if the TV is on but Home Assistant shows it off, turn the media player off, and both agree again. Or press the **Power** button, which switches the TV without changing what Home Assistant shows.
